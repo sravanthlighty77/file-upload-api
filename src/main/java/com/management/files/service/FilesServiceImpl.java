@@ -29,14 +29,13 @@ public class FilesServiceImpl implements FilesService {
 		String path = "src/main/resources/upload";
 		try {
 			if(filesValidation.isValidFileType(file.getOriginalFilename())) {
-				System.out.println("valid file");
 				fileEntity.setName(file.getOriginalFilename());
 				fileEntity.setPath(path+"/"+file.getOriginalFilename());
 				filesRepository.save(fileEntity);
 				Files.copy(file.getInputStream(), Paths.get(path, file.getOriginalFilename()), StandardCopyOption.REPLACE_EXISTING);
 				return "File has been uploaded successfully";
 			}else {
-				throw new RuntimeException("Can only upload file types of .pdf, .doc, .xlsx");
+				throw new RuntimeException("Can only upload file types of .pdf, .docx, .xlsx, .doc");
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
