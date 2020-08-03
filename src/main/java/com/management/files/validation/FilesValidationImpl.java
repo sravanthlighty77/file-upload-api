@@ -19,14 +19,4 @@ public class FilesValidationImpl implements FilesValidation {
 		return false;
 	}
 
-	@Override
-	public boolean isFileExists(MultipartFile file) throws MalformedURLException {
-		String path = "src/main/resources/upload";
-		Path filePath = Paths.get(path).toAbsolutePath().normalize().resolve(file.getOriginalFilename()).normalize();
-		Resource resource = new UrlResource(filePath.toUri());
-		if(resource.exists()) return true;
-		
-		return false;
-	}
-
 }
