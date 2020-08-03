@@ -14,7 +14,7 @@ public class FilesValidationImpl implements FilesValidation {
 
 	@Override
 	public boolean isValidFileType(String fileName) {
-		if(fileName.endsWith(".docx") || fileName.endsWith(".pdf") || fileName.endsWith(".xlsx")) return true;
+		if(fileName.endsWith(".docx") || fileName.endsWith(".pdf") || fileName.endsWith(".xlsx") || fileName.endsWith(".doc")) return true;
 		
 		return false;
 	}
